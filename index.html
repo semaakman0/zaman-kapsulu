@@ -267,6 +267,11 @@
   Bizim ilk yılımız. Ve daha nicelerine...</p>
   </div>
   <div class="ani-karti">
+  <h2>Birbirimizi yeniden bulalı... 🤎</h2>
+  <div id="sayac"></div>
+  <p>Ve hâlâ sayıyorum...</p>
+</div>
+  <div class="ani-karti">
   <h2>Bizi Anlatan Şeyler 🤎</h2>
 
   <p>🎵 <strong>Benden sana...</strong><br>
@@ -289,6 +294,25 @@
   </div>
 </div>
   <script>
+    function sayaciGuncelle() {
+  const baslangic = new Date("2025-06-24T00:00:00");
+  const simdi = new Date();
+  const fark = simdi - baslangic;
+
+  const gun = Math.floor(fark / (1000 * 60 * 60 * 24));
+  const saat = Math.floor((fark / (1000 * 60 * 60)) % 24);
+  const dakika = Math.floor((fark / (1000 * 60)) % 60);
+  const saniye = Math.floor((fark / 1000) % 60);
+
+  document.getElementById("sayac").innerHTML =
+    gun + " gün • " +
+    saat + " saat • " +
+    dakika + " dakika • " +
+    saniye + " saniye 🤎";
+}
+
+sayaciGuncelle();
+setInterval(sayaciGuncelle, 1000);
     function kapsuluAc() {
       const sifre = document.getElementById("sifre").value;
 
