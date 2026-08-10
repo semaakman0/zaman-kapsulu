@@ -706,41 +706,7 @@ fotograflar.forEach((fotograf) => {
     window.scrollTo(0, 0);
   }, 100);
 });
- // 🎂 Doğum günü kutlama efekti
-const dogumGunuKutusu = document.querySelector(".ani-karti:last-of-type details");
 
-if (dogumGunuKutusu) {
-  dogumGunuKutusu.addEventListener("toggle", function () {
-    if (this.open) {
-      const emojiler = ["🎈", "✨", "🎂", "🤎", "🎉" "🤍" "❣️" "🥳" "💚" ] ;
-
-      for (let i = 0; i < 50; i++) {
-        const emoji = document.createElement("div");
-        emoji.innerText = emojiler[Math.floor(Math.random() * emojiler.length)];
-
-        emoji.style.position = "fixed";
-        emoji.style.left = Math.random() * 100 + "vw";
-        emoji.style.top = "-50px";
-        emoji.style.fontSize = (20 + Math.random() * 20) + "px";
-        emoji.style.zIndex = "9999";
-        emoji.style.pointerEvents = "none";
-       emoji.style.transition = "transform 4s linear, opacity 4s ease";
-        emoji.style.transitionDelay = (Math.random() * 1.5) + "s";
-
-        document.body.appendChild(emoji);
-
-        setTimeout(() => {
-          emoji.style.transform = "translate(" + ((Math.random() * 160) - 80) + "px, 110vh) rotate(" + ((Math.random() * 720) - 360) + "deg)";
-          emoji.style.opacity = "0";
-        }, 50);
-
-        setTimeout(() => {
-          emoji.remove();
-        }, 3100);
-      }
-    }
-  });
-}
   </script>
 
 </body>
