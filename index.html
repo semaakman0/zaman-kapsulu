@@ -270,6 +270,23 @@ summary.zarf-kapak::-webkit-details-marker {
   opacity: 1;
   transform: translateY(0);
 }
+
+    /* SON KAPANIŞ EKRANI */
+    .son-ekran {
+      max-width: 600px;
+      margin: 35px auto 0;
+      padding: 42px 24px;
+      background: #FAF6EE;
+      border: 1px solid #C9C2AE;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(90,70,54,0.16);
+      text-align: center;
+      color: #5A4636;
+    }
+    .son-ekran .kalp { font-size: 46px; margin-bottom: 14px; }
+    .son-ekran h2 { color:#4F5B3A; font-size:28px; margin:0 0 18px; }
+    .son-ekran p { font-size:18px; line-height:1.8; margin:10px 0; }
+    .son-ekran .imza { margin-top:28px; font-style:italic; color:#8B6F47; }
   </style>
 </head>
 
@@ -417,8 +434,6 @@ summary.zarf-kapak::-webkit-details-marker {
   <em>(Siz kahvaltıyı hazırlayıp beni uyandırmaya çalışıyor olacaksınız tabii ki 🤭😅)</em>
   </p>
   </div>
-  </div>
-</div> 
   <div class="ani-karti">
 <h2>🎟️ Hatıra Biletimiz</h2>
 <div class="hatira-bileti"> 
@@ -497,7 +512,7 @@ Bu yolculuğun dönüş bileti yoktur. 🤎
 
   <h2>🎂 18 Ağustos</h2>
 
-  <details>
+  <details id="dogumGunuSurprizi">
     <summary style="list-style:none; cursor:pointer;">
       <div style="
         font-size:70px;
@@ -648,6 +663,20 @@ Bu yolculuğun dönüş bileti yoktur. 🤎
   </details>
 
 </div>
+
+<div class="son-ekran">
+  <div class="kalp">🤎</div>
+  <h2>Buraya kadar geldiysen...</h2>
+  <p>Demek ki bizim küçük zaman kapsülümüzün sonuna geldin.</p>
+  <p>Ama bizim hikâyemizin değil.</p>
+  <p><strong>Çünkü burası biten şeyleri değil,<br>biriktirmeye devam edeceğimiz anıları saklıyor.</strong></p>
+  <p>Bugün burada olan her şey, bir gün dönüp baktığımızda<br>“Biz bunları gerçekten yaşamışız.” diyebilmek için.</p>
+  <p>O yüzden bu sayfayı şimdi kapatabilirsin sevgilim…<br>Ama hikâyemize daha yazacak çok şeyimiz var. 🤎</p>
+  <p class="imza">Devamı, birlikte yaşandıkça eklenecek… 🌿</p>
+</div>
+
+</div><!-- /#kapsul -->
+
   <script>
   function sayaciGuncelle() {
 const baslangic = new Date("2025-06-24T14:59:00");
@@ -706,6 +735,33 @@ fotograflar.forEach((fotograf) => {
     window.scrollTo(0, 0);
   }, 100);
 });
+
+const dogumGunuSurprizi = document.getElementById("dogumGunuSurprizi");
+if (dogumGunuSurprizi) {
+  dogumGunuSurprizi.addEventListener("toggle", function () {
+    if (!this.open) return;
+    const emojiler = ["🎈", "✨", "🎂", "🤎", "🎉"];
+    for (let i = 0; i < 50; i++) {
+      setTimeout(() => {
+        const emoji = document.createElement("div");
+        emoji.textContent = emojiler[Math.floor(Math.random() * emojiler.length)];
+        emoji.style.position = "fixed";
+        emoji.style.left = Math.random() * 100 + "vw";
+        emoji.style.top = "-50px";
+        emoji.style.fontSize = (20 + Math.random() * 18) + "px";
+        emoji.style.zIndex = "9999";
+        emoji.style.pointerEvents = "none";
+        emoji.style.transition = "transform 4s linear, opacity 4s ease";
+        document.body.appendChild(emoji);
+        requestAnimationFrame(() => {
+          emoji.style.transform = "translate(" + ((Math.random() * 180) - 90) + "px, 110vh) rotate(" + ((Math.random() * 720) - 360) + "deg)";
+          emoji.style.opacity = "0";
+        });
+        setTimeout(() => emoji.remove(), 4200);
+      }, Math.random() * 3500);
+    }
+  });
+}
 
   </script>
 
