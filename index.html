@@ -741,7 +741,7 @@ const dogumGunuSurprizi = document.getElementById("dogumGunuSurprizi");
 if (dogumGunuSurprizi) {
   const hediyeKutusu = dogumGunuSurprizi.querySelector("summary");
 
-  hediyeKutusu.addEventListener("click", function () {
+  hediyeKutusu.onclick = function () {
     const emojiler = ["🎈", "✨", "🎉", "🤎", "🎂"];
 
     for (let i = 0; i < 60; i++) {
