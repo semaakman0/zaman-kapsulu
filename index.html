@@ -219,6 +219,39 @@
     border-left: 4px solid #7B8467;
     padding-left: 16px;
 }
+  /* ZARF */
+.zarf-kapak {
+    background: #D9D6BF;
+    border: 2px solid #6B705C;
+    border-radius: 8px;
+    padding: 28px 20px;
+    margin: 15px 0 20px;
+    text-align: center;
+    color: #4F5B3A;
+    box-shadow: 0 6px 15px rgba(79,91,58,0.18);
+}
+
+.zarf-ikon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.zarf-tarih {
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: #6B705C;
+}
+
+.zarf-yazi {
+    margin-top: 10px;
+    font-size: 20px;
+    font-style: italic;
+    color: #4F5B3A;
+}
+    details[open] .zarf-kapak {
+    display: none;
+}
   </style>
 </head>
 
@@ -398,7 +431,14 @@ Bu yolculuğun dönüş bileti yoktur. 🤎
   <h2>💌 Gelecekteki Bize</h2>
 
   <details>
-    <summary>💌 Mektubu Aç</summary>
+   <div class="zarf-kapak">
+  <div class="zarf-ikon">✉️</div>
+  <div class="zarf-tarih">24 HAZİRAN 2025</div>
+  <div class="zarf-yazi">Gelecekteki bize...</div>
+</div>
+
+<summary>💌 Mektubu Aç</summary>
+
 
     <div style="margin-top:20px; line-height:1.8; text-align:left;">
       <p><strong>Gelecekteki bize… 🤎</strong></p>
