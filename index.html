@@ -143,7 +143,41 @@
   font-style: italic;
   color: #796755;
   line-height: 1.6;
-    }
+    } 
+    .hatira-bileti {
+    max-width: 520px;
+    margin: 20px auto;
+    padding: 25px;
+    background: #F4EFE6;
+    border: 2px dashed #8B6F47;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(70,50,30,0.20);
+    position: relative;
+}
+
+.bilet-baslik {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #556B2F;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hatira-bileti p {
+    border-bottom: 1px dashed #C9B99A;
+    padding: 8px 0;
+    margin: 0;
+}
+
+.bilet-alt {
+    text-align: center;
+    margin-top: 18px;
+    padding-top: 15px;
+    font-style: italic;
+    color: #8B6F47;
+    border-top: 2px dashed #8B6F47;
+}
   </style>
 </head>
 
@@ -292,9 +326,25 @@
   </p>
   </div>
   </div>
+</div> 
+  <div class="ani-karti">
+<h2>🎟️ Hatıra Biletimiz</h2>
+<div class="hatira-bileti"> 
+  <div class="bilet-baslik">BİZİM YOLCULUĞUMUZ 🤎</div>
+<p><strong>Yolcular:</strong> Sen & Ben</p>
+<p><strong>Kalkış:</strong> 24.06.2025 • 14:59</p>
+<p><strong>Varış:</strong> Bir ömür 🤎</p> 
+  <p><strong>Koltuk:</strong> Yan yana 🤎</p>
+<p><strong>Bagaj:</strong> Bir sürü anı</p>
+<p><strong>Mesafe:</strong> Geçici</p>
+<p><strong>Bilet Türü:</strong> Tek yön — birbirimize</p> 
+  <div class="bilet-alt">
+Bu yolculuğun dönüş bileti yoktur. 🤎
 </div>
-  <script>
-    function sayaciGuncelle() {
+</div>
+  </div>
+<script>
+  function sayaciGuncelle() {
 const baslangic = new Date("2025-06-24T14:59:00");
   const simdi = new Date();
   const fark = simdi - baslangic;
