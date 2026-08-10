@@ -260,6 +260,16 @@
 summary.zarf-kapak::-webkit-details-marker {
     display: none;
 }
+ .fotograf {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fotograf.gorundu {
+  opacity: 1;
+  transform: translateY(0);
+}
   </style>
 </head>
 
@@ -519,6 +529,19 @@ setInterval(sayaciGuncelle, 1000);
         kapsuluAc();
       }
     });
+  const fotograflar = document.querySelectorAll(".fotograf");
+
+const gozlemci = new IntersectionObserver((girdiler) => {
+  girdiler.forEach((girdi) => {
+    if (girdi.isIntersecting) {
+      girdi.target.classList.add("gorundu");
+    }
+  });
+});
+
+fotograflar.forEach((fotograf) => {
+  gozlemci.observe(fotograf);
+});
   </script>
 
 </body>
