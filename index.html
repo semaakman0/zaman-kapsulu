@@ -736,32 +736,62 @@ fotograflar.forEach((fotograf) => {
   }, 100);
 });
 
-const dogumGunuSurprizi = document.getElementById("dogumGunuSurprizi");
+const dogumGunuSurprizi = document.getElementById("dogum-gunu-surprizi");
+
 if (dogumGunuSurprizi) {
-  dogumGunuSurprizi.addEventListener ("toggle", function () {
-    if (!this.open) return;
-    const emojiler = ["🎈", "✨", "🎂", "🤎", "🎉"];
-    for (let i = 0; i < 50; i++) {
-      setTimeout(() => {
-        const emoji = document.createElement("div");
-        emoji.textContent = emojiler[Math.floor(Math.random() * emojiler.length)];
-        emoji.style.position = "fixed";
-        emoji.style.left = Math.random() * 100 + "vw";
-        emoji.style.top = "-50px";
-        emoji.style.fontSize = (20 + Math.random() * 18) + "px";
-        emoji.style.zIndex = "9999";
-        emoji.style.pointerEvents = "none";
-        emoji.style.transition = "transform 4s linear, opacity 4s ease";
-        document.body.appendChild(emoji);
-        requestAnimationFrame(() => {
-          emoji.style.transform = "translate(" + ((Math.random() * 180) - 90) + "px, 110vh) rotate(" + ((Math.random() * 720) - 360) + "deg)";
-          emoji.style.opacity = "0";
-        });
-        setTimeout(() => emoji.remove(), 4200);
-      }, Math.random() * 30);
+  const hediyeKutusu = dogumGunuSurprizi.querySelector("summary");
+
+  hediyeKutusu.addEventListener("click", function () {
+    const emojiler = ["🎈", "✨", "🎉", "🤎", "🎂"];
+
+    for (let i = 0; i < 60; i++) {
+      const emoji = document.createElement("div");
+
+      emoji.textContent =
+        emojiler[Math.floor(Math.random() * emojiler.length)];
+
+      emoji.style.position = "fixed";
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.top = "-50px";
+      emoji.style.fontSize = (20 + Math.random() * 22) + "px";
+      emoji.style.zIndex = "99999";
+      emoji.style.pointerEvents = "none";
+
+      document.body.appendChild(emoji);
+
+      const sagaSola = (Math.random() * 200) - 100;
+      const donus = (Math.random() * 1000) - 500;
+
+      const animasyon = emoji.animate(
+        [
+          {
+            transform: "translate(0, 0) rotate(0deg)",
+            opacity: 1
+          },
+          {
+            transform:
+              "translate(" +
+              sagaSola +
+              "px, 115vh) rotate(" +
+              donus +
+              "deg)",
+            opacity: 0
+          }
+        ],
+        {
+          duration: 2800 + Math.random() * 1800,
+          delay: Math.random() * 400,
+          easing: "linear",
+          fill: "forwards"
+        }
+      );
+
+      animasyon.onfinish = function () {
+        emoji.remove();
+      };
     }
   });
-}
+          }
 
   </script>
 
