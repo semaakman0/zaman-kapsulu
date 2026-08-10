@@ -526,8 +526,63 @@ Bu yolculuğun dönüş bileti yoktur. 🤎
       ">
         Bugün için sana bir şey bıraktım…
       </div>
-    </summary>
+    </summary> 
+    <style>
+#dogumGunuSurprizi .konfeti {
+  display: none;
+}
 
+#dogumGunuSurprizi[open] .konfeti {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#dogumGunuSurprizi[open] .konfeti span {
+  position: absolute;
+  top: -60px;
+  font-size: 30px;
+  animation: konfetiDus 3.5s linear forwards;
+}
+
+@keyframes konfetiDus {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(115vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+</style>
+
+<div class="konfeti">
+  <span style="left:3%;animation-delay:.1s">🎉</span>
+  <span style="left:8%;animation-delay:.6s">✨</span>
+  <span style="left:13%;animation-delay:.2s">🤎</span>
+  <span style="left:18%;animation-delay:.8s">🎂</span>
+  <span style="left:23%;animation-delay:.4s">🎈</span>
+  <span style="left:28%;animation-delay:1s">🎉</span>
+  <span style="left:33%;animation-delay:.3s">🤎</span>
+  <span style="left:38%;animation-delay:.7s">✨</span>
+  <span style="left:43%;animation-delay:.1s">🎈</span>
+  <span style="left:48%;animation-delay:.9s">🎉</span>
+  <span style="left:53%;animation-delay:.5s">🎂</span>
+  <span style="left:58%;animation-delay:.2s">🤎</span>
+  <span style="left:63%;animation-delay:.8s">✨</span>
+  <span style="left:68%;animation-delay:.4s">🎉</span>
+  <span style="left:73%;animation-delay:1s">🎈</span>
+  <span style="left:78%;animation-delay:.3s">🤎</span>
+  <span style="left:83%;animation-delay:.7s">🎂</span>
+  <span style="left:88%;animation-delay:.1s">✨</span>
+  <span style="left:93%;animation-delay:.6s">🎉</span>
+  <span style="left:97%;animation-delay:.4s">🎈</span>
+</div>
+    
     <div style="
       margin-top:30px;
       line-height:1.9;
@@ -736,62 +791,7 @@ fotograflar.forEach((fotograf) => {
   }, 100);
 });
 
-const dogumGunuSurprizi = document.getElementById("dogumGunuSurprizi");
 
-if (dogumGunuSurprizi) {
-  const hediyeKutusu = dogumGunuSurprizi.querySelector("summary");
-
-  hediyeKutusu.onclick = function () {
-    const emojiler = ["🎈", "✨", "🎉", "🤎", "🎂"];
-
-    for (let i = 0; i < 60; i++) {
-      const emoji = document.createElement("div");
-
-      emoji.textContent =
-        emojiler[Math.floor(Math.random() * emojiler.length)];
-
-      emoji.style.position = "fixed";
-      emoji.style.left = Math.random() * 100 + "vw";
-      emoji.style.top = "-50px";
-      emoji.style.fontSize = (20 + Math.random() * 22) + "px";
-      emoji.style.zIndex = "99999";
-      emoji.style.pointerEvents = "none";
-
-      document.body.appendChild(emoji);
-
-      const sagaSola = (Math.random() * 200) - 100;
-      const donus = (Math.random() * 1000) - 500;
-
-      const animasyon = emoji.animate(
-        [
-          {
-            transform: "translate(0, 0) rotate(0deg)",
-            opacity: 1
-          },
-          {
-            transform:
-              "translate(" +
-              sagaSola +
-              "px, 115vh) rotate(" +
-              donus +
-              "deg)",
-            opacity: 0
-          }
-        ],
-        {
-          duration: 2800 + Math.random() * 1800,
-          delay: Math.random() * 400,
-          easing: "linear",
-          fill: "forwards"
-        }
-      );
-
-      animasyon.onfinish = function () {
-        emoji.remove();
-      };
-    }
-  };
-          }
 
   </script>
 
