@@ -706,6 +706,40 @@ fotograflar.forEach((fotograf) => {
     window.scrollTo(0, 0);
   }, 100);
 });
+ // 🎂 Doğum günü kutlama efekti
+const dogumGunuKutusu = document.querySelector(".ani-karti:last-of-type details");
+
+if (dogumGunuKutusu) {
+  dogumGunuKutusu.addEventListener("toggle", function () {
+    if (this.open) {
+      const emojiler = ["🎈", "✨", "🎂", "🤎", "🎉"];
+
+      for (let i = 0; i < 25; i++) {
+        const emoji = document.createElement("div");
+        emoji.innerText = emojiler[Math.floor(Math.random() * emojiler.length)];
+
+        emoji.style.position = "fixed";
+        emoji.style.left = Math.random() * 100 + "vw";
+        emoji.style.top = "-50px";
+        emoji.style.fontSize = (20 + Math.random() * 20) + "px";
+        emoji.style.zIndex = "9999";
+        emoji.style.pointerEvents = "none";
+        emoji.style.transition = "transform 3s ease, opacity 3s ease";
+
+        document.body.appendChild(emoji);
+
+        setTimeout(() => {
+          emoji.style.transform = "translateY(110vh) rotate(360deg)";
+          emoji.style.opacity = "0";
+        }, 50);
+
+        setTimeout(() => {
+          emoji.remove();
+        }, 3100);
+      }
+    }
+  });
+}
   </script>
 
 </body>
