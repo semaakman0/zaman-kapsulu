@@ -517,7 +517,10 @@ setInterval(sayaciGuncelle, 1000);
 
       if (sifre === "240625") {
         document.getElementById("kilit").style.display = "none";
-        document.getElementById("kapsul").style.display = "block";
+        document.getElementById("kapsul").style.display = "block"; 
+        setTimeout(() => {
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+}, 50);
       } else {
         document.getElementById("hata").innerText =
           "Anahtar bu değil... 🤎";
